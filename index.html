@@ -1,0 +1,2197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creditravel Viajes y Turismo | Encontrá tu próximo viaje</title>
+    <meta name="description" content="Agencia de viajes líder en Argentina. Paquetes turísticos nacionales e internacionales, vuelos, hoteles, excursiones y escapadas con atención personalizada.">
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0052CC;
+            --primary-hover: #003E99;
+            --primary-light: #E6F0FF;
+            --secondary: #0A192F;
+            --accent: #FF5722;
+            --accent-hover: #E64A19;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1EBE5B;
+            --bg-light: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --border-light: #E2E8F0;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+            --shadow-md: 0 8px 24px rgba(15,23,42,0.08);
+            --shadow-lg: 0 16px 32px rgba(0,82,204,0.12);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 9999px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: inherit;
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 48px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: var(--radius-pill);
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(0, 82, 204, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 82, 204, 0.4);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--secondary);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .btn-sm {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+        }
+
+        .btn-compact-wa {
+            padding: 6px 14px;
+            font-size: 0.825rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* HEADER & NAVBAR */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, #0088FF 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25);
+        }
+
+        .logo span {
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            background: none;
+        }
+
+        /* HERO SECTION */
+        .hero-section {
+            position: relative;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(10, 25, 47, 0.45), rgba(10, 25, 47, 0.75)), 
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+            color: white;
+            padding: 80px 0 100px;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+        }
+
+        .hero-content {
+            max-width: 680px;
+            margin-bottom: 40px;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            opacity: 0.95;
+            margin-bottom: 24px;
+        }
+
+        /* SEARCH CONTAINER */
+        .search-box-wrap {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .search-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .search-field label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .search-field input, .search-field select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            background-color: var(--bg-light);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-field input:focus, .search-field select:focus {
+            border-color: var(--primary);
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.1);
+        }
+
+        /* CATEGORIES BAR */
+        .categories-section {
+            padding: 40px 0 20px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 16px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 18px 12px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin: 0 auto 10px;
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-icon {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* CARDS & GRIDS */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        /* FEATURED OFFERS */
+        .offers-section {
+            padding: 70px 0;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .offer-card:hover .card-img-wrap img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            z-index: 2;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .price-val {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* DESTINATIONS GRID */
+        .destinations-section {
+            padding: 70px 0;
+            background-color: white;
+        }
+
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .dest-card {
+            position: relative;
+            height: 280px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .dest-card img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .dest-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .dest-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 25, 47, 0.9) 0%, rgba(10, 25, 47, 0.2) 60%, transparent 100%);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: white;
+        }
+
+        .dest-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .dest-info {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* FILTER TABS */
+        .filter-tabs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: var(--radius-pill);
+            font-weight: 700;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--secondary);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* WHY CREDITRAVEL */
+        .why-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 32px 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        .benefit-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* SEASONAL PROMOTIONS */
+        .promo-section {
+            padding: 70px 0;
+            background: white;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1E3A8A 100%);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .promo-content {
+            max-width: 550px;
+        }
+
+        .promo-content h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .promo-content p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        /* WHATSAPP CTA BANNER */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0A192F 0%, #003E99 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .cta-btns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* NEWSLETTER */
+        .newsletter-section {
+            padding: 60px 0;
+            background: var(--primary-light);
+        }
+
+        .newsletter-box {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 14px 20px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--border-light);
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            margin: 16px 0 24px;
+            max-width: 320px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            color: #94A3B8;
+            font-size: 0.9rem;
+        }
+
+        .contact-info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-info-list i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: #94A3B8;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* PAGE VIEWS (SPA NAVIGATION) */
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+
+        .page-header {
+            background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.85)), 
+                        url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        /* PACKAGE DETAIL MODAL */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            border-radius: var(--radius-lg);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 10;
+            box-shadow: var(--shadow-md);
+            color: var(--secondary);
+        }
+
+        .modal-hero {
+            height: 320px;
+            position: relative;
+        }
+
+        .modal-hero img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .modal-content-body {
+            padding: 32px;
+        }
+
+        /* ITINERARY TIMELINE */
+        .timeline {
+            margin-top: 24px;
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid var(--primary-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-day {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin: 2px 0 6px;
+        }
+
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* STICKY MOBILE WHATSAPP BAR */
+        .mobile-sticky-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 12px 20px;
+            box-shadow: 0 -4px 16px rgba(0,0,0,0.1);
+            z-index: 999;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+            .dest-grid { grid-template-columns: repeat(2, 1fr); }
+            .search-box { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                box-shadow: var(--shadow-md);
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .grid-3, .grid-4, .dest-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .promo-banner {
+                flex-direction: column;
+                padding: 32px 24px;
+                text-align: center;
+            }
+
+            .mobile-sticky-bar {
+                display: flex;
+            }
+            
+            body {
+                padding-bottom: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="switchPage('home')">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <div>CREDITRAVEL <span>TURISMO</span></div>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a class="nav-link active" onclick="switchPage('home')">Inicio</a></li>
+                <li><a class="nav-link" onclick="switchPage('paquetes')">Paquetes</a></li>
+                <li><a class="nav-link" onclick="switchPage('excursiones')">Excursiones</a></li>
+                <li><a class="nav-link" onclick="switchPage('destinos')">Destinos</a></li>
+                <li><a class="nav-link" onclick="switchPage('hoteles')">Hoteles</a></li>
+                <li><a class="nav-link" onclick="switchPage('ofertas')">Ofertas</a></li>
+                <li><a class="nav-link" onclick="switchPage('nosotros')">Nosotros</a></li>
+                <li><a class="nav-link" onclick="switchPage('contacto')">Contacto</a></li>
+            </ul>
+
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20recibir%20informaci%C3%B3n%20sobre%20sus%20paquetes%20de%20viaje" target="_blank" class="btn btn-whatsapp btn-compact-wa">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 0.95rem;"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN VIEW CONTAINER -->
+    <main id="mainContent">
+
+        <!-- ================= PAGE 1: HOME ================= -->
+        <div id="view-home" class="page-view active">
+
+            <!-- HERO SECTION -->
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <span class="section-tag" style="background: rgba(255,255,255,0.2); color: white;">Tu agencia de confianza</span>
+                        <h1 class="hero-title">Encontrá tu próximo viaje</h1>
+                        <p class="hero-subtitle">Paquetes, excursiones y experiencias pensadas para que descubras nuevos destinos con total tranquilidad.</p>
+                        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+                            <button class="btn btn-primary" onclick="switchPage('paquetes')">Ver todos los viajes</button>
+                            <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="switchPage('ofertas')">Ver ofertas del mes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEARCH PANEL -->
+            <div class="container search-box-wrap">
+                <div class="search-box">
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-location-dot"></i> Destino</label>
+                        <select id="searchDestino">
+                            <option value="">¿A dónde querés viajar?</option>
+                            <option value="bariloche">Bariloche, Argentina</option>
+                            <option value="patagonia">Patagonia & Glaciares</option>
+                            <option value="buenosaires">Buenos Aires & Tigre</option>
+                            <option value="brasil">Rio de Janeiro, Brasil</option>
+                            <option value="caribe">Cancún / Caribe</option>
+                            <option value="termas">Termas de Entre Ríos</option>
+                            <option value="europa">Europa Clásica</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-calendar-days"></i> Fecha de viaje</label>
+                        <select id="searchFecha">
+                            <option value="">Cualquier mes</option>
+                            <option value="verano">Verano 2027</option>
+                            <option value="invierno">Invierno 2026</option>
+                            <option value="escapada">Fin de semana largo</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-suitcase"></i> Tipo de viaje</label>
+                        <select id="searchTipo">
+                            <option value="">Todos los tipos</option>
+                            <option value="nacional">Nacional</option>
+                            <option value="internacional">Internacional</option>
+                            <option value="playa">Playa & Sol</option>
+                            <option value="montana">Montaña & Nieve</option>
+                            <option value="termas">Relax & Termas</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <label><i class="fa-solid fa-user-group"></i> Pasajeros</label>
+                        <select id="searchPasajeros">
+                            <option value="1">1 Pasajero</option>
+                            <option value="2" selected>2 Pasajeros</option>
+                            <option value="3">Familia (3-4)</option>
+                            <option value="5">Grupo (+5)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" style="height: 48px;" onclick="executeSearch()">
+                        <i class="fa-solid fa-magnifying-glass"></i> Buscar viajes
+                    </button>
+                </div>
+            </div>
+
+            <!-- QUICK CATEGORIES -->
+            <section class="categories-section">
+                <div class="container">
+                    <div class="category-grid">
+                        <div class="category-card" onclick="filterByCat('playa')">
+                            <div class="category-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                            <div class="category-name">Playa</div>
+                        </div>
+                        <div class="category-card" onclick="filterByCat('montana')">
+                            <div class="category-icon"><i class="fa-solid fa-mountain"></i></div>
+                            <div class="category-name">Montaña</div>
+                        </div>
+                        <div class="category-card" onclick="filterByCat('escapadas')">
+                            <div class="category-icon"><i class="fa-solid fa-car-side"></i></div>
+                            <div class="category-name">Escapadas</div>
+                        </div>
+                        <div class="category-card" onclick="filterByCat('argentina')">
+                            <div class="category-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                            <div class="category-name">Argentina</div>
+                        </div>
+                        <div class="category-card" onclick="filterByCat('brasil')">
+                            <div class="category-icon"><i class="fa-solid fa-sun"></i></div>
+                            <div class="category-name">Brasil</div>
+                        </div>
+                        <div class="category-card" onclick="filterByCat('internacional')">
+                            <div class="category-icon"><i class="fa-solid fa-plane"></i></div>
+                            <div class="category-name">Internacional</div>
+                        </div>
+                        <div class="category-card" onclick="switchPage('hoteles')">
+                            <div class="category-icon"><i class="fa-solid fa-hotel"></i></div>
+                            <div class="category-name">Hoteles</div>
+                        </div>
+                        <div class="category-card" onclick="switchPage('excursiones')">
+                            <div class="category-icon"><i class="fa-solid fa-route"></i></div>
+                            <div class="category-name">Excursiones</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FEATURED OFFERS -->
+            <section class="offers-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Oportunidades únicas</span>
+                        <h2 class="section-title">Ofertas destacadas</h2>
+                        <p class="section-desc">Descubrí nuestras propuestas más buscadas y aprovechá las mejores oportunidades para viajar este mes.</p>
+                    </div>
+
+                    <div class="grid-3" id="featuredOffersGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESTINATIONS -->
+            <section class="destinations-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Inspiración para tu viaje</span>
+                        <h2 class="section-title">Descubrí nuestros destinos</h2>
+                        <p class="section-desc">Seleccionamos las mejores opciones nacionales e internacionales con salidas garantizadas.</p>
+                    </div>
+
+                    <div class="dest-grid" id="destinationsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- POPULAR PACKAGES -->
+            <section style="padding: 70px 0; background: var(--bg-light);">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Catálogo seleccionado</span>
+                        <h2 class="section-title">Paquetes más buscados</h2>
+                        <p class="section-desc">Explorá nuestras opciones favoritas con todo incluido, traslados y asistencia al viajero.</p>
+                    </div>
+
+                    <!-- Category filter buttons -->
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" onclick="filterPackages('all', this)">Todos</button>
+                        <button class="filter-btn" onclick="filterPackages('nacional', this)">Nacionales</button>
+                        <button class="filter-btn" onclick="filterPackages('internacional', this)">Internacionales</button>
+                        <button class="filter-btn" onclick="filterPackages('playa', this)">Playa</button>
+                        <button class="filter-btn" onclick="filterPackages('montana', this)">Montaña</button>
+                        <button class="filter-btn" onclick="filterPackages('escapadas', this)">Escapadas</button>
+                    </div>
+
+                    <div class="grid-3" id="popularPackagesGrid">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button class="btn btn-outline" onclick="switchPage('paquetes')">Ver catálogo completo de paquetes</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHY CREDITRAVEL -->
+            <section class="why-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Confianza & Seguridad</span>
+                        <h2 class="section-title">Viajá con la tranquilidad de estar acompañado</h2>
+                        <p class="section-desc">Nos encargamos de cada detalle de tu itinerario para que solo te preocupes por disfrutar.</p>
+                    </div>
+
+                    <div class="grid-4">
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-headset"></i></div>
+                            <h3 class="benefit-title">Atención personalizada</h3>
+                            <p class="benefit-desc">Te ayudamos a encontrar el viaje adecuado para vos con agentes expertos dedicados.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <h3 class="benefit-title">Experiencia en turismo</h3>
+                            <p class="benefit-desc">Una propuesta pensada para que viajes con total confianza y respaldo profesional.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-tags"></i></div>
+                            <h3 class="benefit-title">Precios y promociones</h3>
+                            <p class="benefit-desc">Encontrá oportunidades exclusivas y facilidades de pago para diferentes presupuestos.</p>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                            <h3 class="benefit-title">Asistencia en tu viaje</h3>
+                            <p class="benefit-desc">Estamos disponibles para acompañarte y resolver consultas antes y durante tu viaje.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEASONAL PROMOTIONS BANNER -->
+            <section class="promo-section">
+                <div class="container">
+                    <div class="promo-banner">
+                        <div class="promo-content">
+                            <span class="badge badge-accent" style="margin-bottom: 12px; display: inline-block;">Promoción de Temporada</span>
+                            <h3>Las mejores oportunidades para viajar</h3>
+                            <p>Aprovechá cupos limitados en paquetes para Invierno, Verano 2027 y Feriados. Consultá tus fechas con un solo clic.</p>
+                            <a href="https://wa.me/5491112345678?text=Hola,%20quiero%20consultar%20por%20las%20promociones%20de%20temporada" target="_blank" class="btn btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Consultar Promociones
+                            </a>
+                        </div>
+                        <div style="font-size: 8rem; opacity: 0.15; color: white;">
+                            <i class="fa-solid fa-plane-up"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONVERSION WHATSAPP CTA -->
+            <section class="cta-section">
+                <div class="container">
+                    <div class="cta-content">
+                        <h2 class="cta-title">¿Ya sabés dónde querés viajar?</h2>
+                        <p class="cta-desc">Contanos qué destino tenés en mente y nuestro equipo especializado te armará la mejor propuesta a medida.</p>
+                        <div class="cta-btns">
+                            <a href="https://wa.me/5491112345678?text=Hola,%20tengo%20un%20destino%20en%20mente%20y%20quisiera%20asesoramiento" target="_blank" class="btn btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Consultar por WhatsApp
+                            </a>
+                            <button class="btn btn-outline" style="color: white; border-color: rgba(255,255,255,0.4);" onclick="switchPage('paquetes')">Explorar paquetes</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEWSLETTER -->
+            <section class="newsletter-section">
+                <div class="container">
+                    <div class="newsletter-box">
+                        <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--secondary);">Recibí nuestras mejores ofertas</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 6px;">Suscribite y enterate de nuevas promociones, nuevos destinos y oportunidades para viajar.</p>
+                        
+                        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte a Creditravel!');">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit" class="btn btn-primary">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= PAGE 2: PAQUETES ================= -->
+        <div id="view-paquetes" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Paquetes de viaje</h1>
+                    <p class="page-subtitle">Encontrá el viaje ideal para tu próxima aventura nacional o internacional.</p>
+                </div>
+            </div>
+
+            <section style="padding: 60px 0;">
+                <div class="container">
+                    <!-- Filters bar -->
+                    <div style="background: white; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-light); margin-bottom: 40px;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                            <div class="search-field">
+                                <label><i class="fa-solid fa-filter"></i> Categoría</label>
+                                <select id="filterCatFull" onchange="renderFullPackages()">
+                                    <option value="all">Todas las categorías</option>
+                                    <option value="nacional">Nacionales</option>
+                                    <option value="internacional">Internacionales</option>
+                                    <option value="playa">Playa</option>
+                                    <option value="montana">Montaña</option>
+                                    <option value="escapadas">Escapadas</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label><i class="fa-solid fa-clock"></i> Duración</label>
+                                <select id="filterDurFull" onchange="renderFullPackages()">
+                                    <option value="all">Cualquier duración</option>
+                                    <option value="3">3 a 5 Días</option>
+                                    <option value="7">7 a 10 Días</option>
+                                    <option value="12">Más de 10 Días</option>
+                                </select>
+                            </div>
+                            <div class="search-field">
+                                <label><i class="fa-solid fa-coins"></i> Ordenar por</label>
+                                <select id="filterSortFull" onchange="renderFullPackages()">
+                                    <option value="popular">Recomendados</option>
+                                    <option value="price-asc">Precio: Menor a Mayor</option>
+                                    <option value="price-desc">Precio: Mayor a Menor</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-3" id="allPackagesGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 3: EXCURSIONES ================= -->
+        <div id="view-excursiones" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Excursiones & Experiencias</h1>
+                    <p class="page-subtitle">Paseos diarios, aventuras guiadas y actividades inolvidables en cada destino.</p>
+                </div>
+            </div>
+
+            <section style="padding: 60px 0;">
+                <div class="container">
+                    <div class="grid-3" id="excursionsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 4: DESTINOS ================= -->
+        <div id="view-destinos" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Guía de Destinos</h1>
+                    <p class="page-subtitle">Explorá los rincones más increíbles de Argentina y el mundo.</p>
+                </div>
+            </div>
+
+            <section style="padding: 60px 0;">
+                <div class="container">
+                    <div class="dest-grid" id="fullDestinationsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 5: HOTELES ================= -->
+        <div id="view-hoteles" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Hoteles Seleccionados</h1>
+                    <p class="page-subtitle">Alojamiento de calidad con ubicaciones estratégicas y las mejores comodidades.</p>
+                </div>
+            </div>
+
+            <section style="padding: 60px 0;">
+                <div class="container">
+                    <div class="grid-3" id="hotelsGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 6: OFERTAS ================= -->
+        <div id="view-ofertas" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Ofertas & Promociones</h1>
+                    <p class="page-subtitle">Descuentos especiales, paquetes promocionales y salidas de último momento.</p>
+                </div>
+            </div>
+
+            <section style="padding: 60px 0;">
+                <div class="container">
+                    <div class="grid-3" id="specialOffersGrid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 7: NOSOTROS ================= -->
+        <div id="view-nosotros" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Sobre Creditravel</h1>
+                    <p class="page-subtitle">Más de 15 años diseñando momentos memorables y acompañando a viajeros.</p>
+                </div>
+            </div>
+
+            <section style="padding: 70px 0; background: white;">
+                <div class="container" style="max-width: 900px;">
+                    <div style="font-size: 1.1rem; line-height: 1.8; color: #334155;">
+                        <h2 style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 20px;">Tu compañero de confianza en cada destino</h2>
+                        <p style="margin-bottom: 20px;">
+                            En <strong>Creditravel Viajes y Turismo</strong> nos apasiona hacer realidad tus sueños de viaje. Somos una agencia especializada en la organización integral de paquetes turísticos, excursiones, reservas hoteleras y vuelos tanto en destinos nacionales como internacionales.
+                        </p>
+                        <p style="margin-bottom: 20px;">
+                            Nuestra prioridad es brindar un asesoramiento cálido, claro y profesional. Entendemos que cada viajero es único, por lo que adaptamos nuestras propuestas según tus preferencias, tiempos y presupuesto, asegurando siempre el mayor confort y respaldo durante toda tu estadía.
+                        </p>
+
+                        <div class="grid-3" style="margin: 40px 0;">
+                            <div style="background: var(--bg-light); padding: 24px; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 4px;">+15k</div>
+                                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">Viajeros Felices</div>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 24px; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 4px;">+50</div>
+                                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">Destinos Disponibles</div>
+                            </div>
+                            <div style="background: var(--bg-light); padding: 24px; border-radius: var(--radius-md); text-align: center;">
+                                <div style="font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 4px;">100%</div>
+                                <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-muted);">Atención Personalizada</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 40px;">
+                            <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20asesoramiento%20para%20planificar%20mi%20pr%C3%B3ximo%20viaje" target="_blank" class="btn btn-whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> Hablar con un Asesor
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE 8: CONTACTO ================= -->
+        <div id="view-contacto" class="page-view">
+            <div class="page-header">
+                <div class="container">
+                    <h1 class="page-title">Contactanos</h1>
+                    <p class="page-subtitle">Estamos para responder todas tus inquietudes y armar tu itinerario.</p>
+                </div>
+            </div>
+
+            <section style="padding: 70px 0;">
+                <div class="container">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+                        <div>
+                            <h2 style="font-size: 1.75rem; font-weight: 800; color: var(--secondary); margin-bottom: 16px;">Envianos tu consulta</h2>
+                            <p style="color: var(--text-muted); margin-bottom: 28px;">Completa el formulario y te responderemos a la brevedad por correo o WhatsApp.</p>
+                            
+                            <form onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 16px;">
+                                <div class="search-field">
+                                    <label>Nombre Completo</label>
+                                    <input type="text" id="contactNombre" placeholder="Ej: Maria Gonzalez" required>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                    <div class="search-field">
+                                        <label>Correo Electrónico</label>
+                                        <input type="email" id="contactEmail" placeholder="tu@email.com" required>
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Teléfono / WhatsApp</label>
+                                        <input type="tel" id="contactTel" placeholder="11 2345 6789" required>
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                    <div class="search-field">
+                                        <label>Destino de interés</label>
+                                        <input type="text" id="contactDestino" placeholder="Ej: Bariloche">
+                                    </div>
+                                    <div class="search-field">
+                                        <label>Pasajeros</label>
+                                        <select id="contactPasajeros">
+                                            <option value="1">1 Personas</option>
+                                            <option value="2" selected>2 Personas</option>
+                                            <option value="3-4">3-4 Personas</option>
+                                            <option value="5+">5+ Personas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="search-field">
+                                    <label>Mensaje o Comentarios</label>
+                                    <textarea id="contactMensaje" rows="4" style="width:100%; padding:12px; border:1px solid var(--border-light); border-radius:var(--radius-sm); outline:none;" placeholder="Contanos fechas aproximadas, preferencias..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">
+                                    <i class="fa-solid fa-paper-plane"></i> Enviar Consulta
+                                </button>
+                            </form>
+                        </div>
+
+                        <div>
+                            <div style="background: white; padding: 36px; border-radius: var(--radius-md); border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+                                <h3 style="font-size: 1.3rem; font-weight: 800; color: var(--secondary); margin-bottom: 24px;">Información de Atención</h3>
+                                
+                                <ul class="contact-info-list" style="font-size: 1rem; color: var(--text-dark);">
+                                    <li>
+                                        <i class="fa-brands fa-whatsapp" style="color: var(--whatsapp); font-size: 1.25rem;"></i>
+                                        <div>
+                                            <strong>WhatsApp Directo</strong><br>
+                                            <a href="https://wa.me/5491112345678" target="_blank" style="color: var(--primary); font-weight: 700;">+54 9 11 1234-5678</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-envelope" style="color: var(--primary); font-size: 1.25rem;"></i>
+                                        <div>
+                                            <strong>Correo Electrónico</strong><br>
+                                            info@creditravel.com.ar
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-location-dot" style="color: var(--primary); font-size: 1.25rem;"></i>
+                                        <div>
+                                            <strong>Oficina Comercial</strong><br>
+                                            Av. Corrientes 1234, Piso 5 - Buenos Aires, Argentina
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-clock" style="color: var(--primary); font-size: 1.25rem;"></i>
+                                        <div>
+                                            <strong>Horario de Atención</strong><br>
+                                            Lunes a Viernes de 09:00 a 18:00 hs
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                                    <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20hacer%20una%20consulta%20directa" target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+                                        <i class="fa-brands fa-whatsapp"></i> Chat directo en WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo" style="color: white;">
+                        <div class="logo-icon"><i class="fa-solid fa-plane-departure"></i></div>
+                        <div>CREDITRAVEL <span style="color: #94A3B8;">TURISMO</span></div>
+                    </a>
+                    <p>Agencia de viajes y turismo comprometida en brindarte experiencias únicas con la máxima seguridad, confianza y asesoramiento profesional.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="switchPage('home')">Inicio</a></li>
+                        <li><a onclick="switchPage('paquetes')">Paquetes Turísticos</a></li>
+                        <li><a onclick="switchPage('excursiones')">Excursiones</a></li>
+                        <li><a onclick="switchPage('destinos')">Destinos</a></li>
+                        <li><a onclick="switchPage('hoteles')">Hoteles</a></li>
+                        <li><a onclick="switchPage('ofertas')">Ofertas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Destinos</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="switchPage('destinos')">Bariloche</a></li>
+                        <li><a onclick="switchPage('destinos')">Patagonia</a></li>
+                        <li><a onclick="switchPage('destinos')">Brasil</a></li>
+                        <li><a onclick="switchPage('destinos')">Caribe</a></li>
+                        <li><a onclick="switchPage('destinos')">Termas</a></li>
+                        <li><a onclick="switchPage('destinos')">Europa</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul class="contact-info-list">
+                        <li><i class="fa-solid fa-phone"></i> +54 9 11 1234-5678</li>
+                        <li><i class="fa-solid fa-envelope"></i> info@creditravel.com.ar</li>
+                        <li><i class="fa-solid fa-location-dot"></i> Av. Corrientes 1234, CABA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 Creditravel Viajes y Turismo. Todos los derechos reservados. EVT Leg. N° 15482</div>
+                <div style="display: flex; gap: 16px; font-size: 1.25rem;">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE WHATSAPP BAR -->
+    <div class="mobile-sticky-bar">
+        <div>
+            <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">¿Preguntas sobre un viaje?</div>
+            <div style="font-size: 0.9rem; font-weight: 800; color: var(--secondary);">Respuesta inmediata</div>
+        </div>
+        <a href="https://wa.me/5491112345678?text=Hola,%20quisiera%20consultar%20por%20un%20paquete%20de%20viaje" target="_blank" class="btn btn-whatsapp btn-sm">
+            <i class="fa-brands fa-whatsapp"></i> Consultar
+        </a>
+    </div>
+
+    <!-- PACKAGE DETAIL MODAL -->
+    <div class="modal-backdrop" id="packageModal" onclick="closePackageModal(event)">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closePackageModalDirect()"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="modal-hero">
+                <img id="modalImg" src="" alt="Destino">
+            </div>
+
+            <div class="modal-content-body">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px;">
+                    <span class="badge badge-primary" id="modalBadge">Nacional</span>
+                    <span style="font-size: 0.9rem; font-weight: 700; color: var(--primary);"><i class="fa-regular fa-clock"></i> <span id="modalDuracion">7 días / 6 noches</span></span>
+                </div>
+
+                <h2 style="font-size: 2rem; font-weight: 800; color: var(--secondary); margin-bottom: 8px;" id="modalTitle">Título del Paquete</h2>
+                <div style="font-size: 1rem; color: var(--text-muted); margin-bottom: 24px;"><i class="fa-solid fa-location-dot"></i> <span id="modalDestino">Destino</span></div>
+
+                <div style="background: var(--bg-light); padding: 20px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 28px;">
+                    <div>
+                        <div class="price-label">Precio desde</div>
+                        <div class="price-val" style="font-size: 2rem;" id="modalPrice">$0</div>
+                    </div>
+                    <a id="modalWhatsappBtn" href="" target="_blank" class="btn btn-whatsapp" style="font-size: 1.05rem;">
+                        <i class="fa-brands fa-whatsapp"></i> Reservar / Consultar por WhatsApp
+                    </a>
+                </div>
+
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary); margin-bottom: 12px;">Descripción del Viaje</h3>
+                <p id="modalDesc" style="color: var(--text-muted); line-height: 1.7; margin-bottom: 28px;"></p>
+
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--secondary); margin-bottom: 16px;">Itinerario Día por Día</h3>
+                <div class="timeline" id="modalItinerary">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                    <div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-circle-check" style="color: #10B981;"></i> El paquete incluye:
+                        </h4>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;" id="modalIncludes">
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1rem; font-weight: 800; color: var(--secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-circle-xmark" style="color: #EF4444;"></i> El paquete no incluye:
+                        </h4>
+                        <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 8px;">
+                            <li>• Gastos personales</li>
+                            <li>• Entradas a parques no especificadas</li>
+                            <li>• Propinas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT DATA & LOGIC -->
+    <script>
+        // DATA SOURCES
+        const packagesData = [
+            {
+                id: 1,
+                title: "Bariloche Nieve & Bosques",
+                destination: "Bariloche, Río Negro",
+                image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
+                category: "montana",
+                type: "nacional",
+                duration: "7 días / 6 noches",
+                price: "$450.000",
+                badge: "Más vendido",
+                description: "Disfrutá del Cerro Catedal, Circuito Chico y los lagos más hermosos de la Patagonia argentina con alojamiento y traslados incluidos.",
+                itinerary: [
+                    { day: "Día 1", title: "Llegada a Bariloche", desc: "Recepción en el aeropuerto o terminal. Traslado al hotel seleccionado. Tarde libre para recorrer el Centro Cívico." },
+                    { day: "Día 2", title: "Circuito Chico y Punto Panorámico", desc: "Recorrido por la costanera, Playa Bonita, ascenso a Cerro Campanario y mirador del Lago Moreno." },
+                    { day: "Día 3", title: "Día completo en Cerro Catedral", desc: "Traslado al centro de esquí más grande de Sudamérica. Tiempo libre para nieve o trekking." },
+                    { day: "Día 4-6", title: "Excursión a San Martín de los Andes", desc: "Paseo por la mítica Ruta de los 7 Lagos pasando por Villa La Angostura." }
+                ],
+                includes: ["Alojamiento con desayuno", "Traslados in/out", "Excursión Circuito Chico", "Asistencia médica integral"]
+            },
+            {
+                id: 2,
+                title: "Glaciares & El Calafate Unico",
+                destination: "Patagonia Argentina",
+                image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=800&q=80",
+                category: "montana",
+                type: "nacional",
+                duration: "5 días / 4 noches",
+                price: "$580.000",
+                badge: "Imperdible",
+                description: "Maravillate con la majestuosidad del Glaciar Perito Moreno y navegaciones por el Lago Argentino.",
+                itinerary: [
+                    { day: "Día 1", title: "Arribo a El Calafate", desc: "Recepción y acomodación en hotel. Charla informativa sobre las pasarelas." },
+                    { day: "Día 2", title: "Glaciar Perito Moreno", desc: "Visita guiada a las pasarelas con tiempo para contemplar los desprendimientos de hielo." },
+                    { day: "Día 3", title: "Navegación Ríos de Hielo", desc: "Excursión lacustre entre icebergs visitando Glaciar Upsala y Spegazzini." }
+                ],
+                includes: ["Alojamiento 4 estrellas", "Excursión Perito Moreno", "Desayunos buffet", "Coordinador permanente"]
+            },
+            {
+                id: 3,
+                title: "Playas de Rio de Janeiro & Búzios",
+                destination: "Río de Janeiro, Brasil",
+                image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=800&q=80",
+                category: "playa",
+                type: "internacional",
+                duration: "8 días / 7 noches",
+                price: "USD 890",
+                badge: "Oferta Verano",
+                description: "Copacabana, Cristo Redentor y el encanto de las playas cristalinas de Búzios en un paquete completo.",
+                itinerary: [
+                    { day: "Día 1", title: "Vuelo a Río de Janeiro", desc: "Llegada, recepción en el aeropuerto Galeao y traslado al hotel en Copacabana." },
+                    { day: "Día 2", title: "Cristo Redentor y Pan de Azúcar", desc: "City tour completo por la ciudad maravillosa." },
+                    { day: "Día 3-7", title: "Estadía en Búzios", desc: "Traslado a la península de Búzios para disfrutar de sus más de 20 playas paradisíacas." }
+                ],
+                includes: ["Vuelos aéreos incluidos", "Alojamiento con desayuno", "City tour Río", "Traslados inter-hoteles"]
+            },
+            {
+                id: 4,
+                title: "Escapada Relax Termas de Federación",
+                destination: "Entre Ríos, Argentina",
+                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80",
+                category: "escapadas",
+                type: "nacional",
+                duration: "4 días / 3 noches",
+                price: "$220.000",
+                badge: "Escapada",
+                description: "Desconectate con la calidez del parque termal, spas y la tranquilidad de las orillas del Río Uruguay.",
+                itinerary: [
+                    { day: "Día 1", title: "Salida en bus chárter", desc: "Viaje confortable hasta Federación. Check-in en hotel céntrico cercano al parque." },
+                    { day: "Día 2-3", title: "Días de Spa y Termas", desc: "Pases ilimitados al complejo termal y circuito de relajación." }
+                ],
+                includes: ["Bus semi-cama ida y vuelta", "Entradas al Parque Termal", "Media pensión", "Asistencia médica"]
+            },
+            {
+                id: 5,
+                title: "Cancún All Inclusive & Tulum",
+                destination: "Caribe Mexicano",
+                image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=800&q=80",
+                category: "playa",
+                type: "internacional",
+                duration: "9 días / 8 noches",
+                price: "USD 1.450",
+                badge: "All Inclusive",
+                description: "Resort frente al mar con todo incluido, playas de arena blanca y excursión a las ruinas mayas de Tulum.",
+                itinerary: [
+                    { day: "Día 1", title: "Arribo a Cancún", desc: "Llegada al Caribe y bienvenida en Resort All Inclusive." },
+                    { day: "Día 2-7", title: "Disfrute All Inclusive", desc: "Comidas y bebidas ilimitadas, deportes acuáticos y shows nocturnos." },
+                    { day: "Día 8", title: "Visita a Tulum", desc: "Excursión arqueológica a la ciudad maya amurallada sobre la playa." }
+                ],
+                includes: ["Vuelos directos", "Resort All Inclusive 5★", "Excursión a Tulum", "Seguro médico internacional"]
+            },
+            {
+                id: 6,
+                title: "Buenos Aires Cultural & Tigre",
+                destination: "Buenos Aires, Argentina",
+                image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=800&q=80",
+                category: "escapadas",
+                type: "nacional",
+                duration: "3 días / 2 noches",
+                price: "$140.000",
+                badge: "Escapada",
+                description: "Teatros, gastronomía porteña, paseo en catamarán por el Delta del Tigre y show de tango.",
+                itinerary: [
+                    { day: "Día 1", title: "Llegada a la Capital", desc: "Alojamiento en hotel boutique de Recoleta. Noche de cena show de tango." },
+                    { day: "Día 2", title: "Navegación Delta del Tigre", desc: "Paseo por las islas del Tigre y recorrido por el Puerto de Frutos." }
+                ],
+                includes: ["Hotel 4★ céntrico", "Navegación por el Delta", "Cena Show de Tango", "Desayuno incluido"]
+            }
+        ];
+
+        const destinationsData = [
+            { name: "Bariloche", region: "Patagonia", image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80", packagesCount: 8 },
+            { name: "Patagonia & Calafate", region: "Argentina", image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=600&q=80", packagesCount: 5 },
+            { name: "Rio de Janeiro", region: "Brasil", image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&w=600&q=80", packagesCount: 6 },
+            { name: "Cancún & Caribe", region: "México", image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80", packagesCount: 7 },
+            { name: "Termas de Entre Ríos", region: "Litoral", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80", packagesCount: 4 },
+            { name: "Europa Clásica", region: "Europa", image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=600&q=80", packagesCount: 3 },
+            { name: "Buenos Aires & Tigre", region: "Argentina", image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80", packagesCount: 5 },
+            { name: "Mendoza & Viñedos", region: "Cuyo", image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80", packagesCount: 4 }
+        ];
+
+        const excursionsData = [
+            { title: "Navegación Glaciar Perito Moreno", location: "El Calafate", duration: "Full Day", price: "$95.000", image: "https://images.unsplash.com/photo-1527004013197-933c4bb611b3?auto=format&fit=crop&w=600&q=80" },
+            { title: "Isla Victoria y Bosque de Arrayanes", location: "Bariloche", duration: "Medio Día", price: "$52.000", image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80" },
+            { title: "Paseo en Catamarán por el Delta", location: "Tigre, BsAs", duration: "5 Horas", price: "$28.000", image: "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        const hotelsData = [
+            { title: "Hotel Llao Llao Resort & Spa", location: "Bariloche", stars: "5★", price: "$220.000 / noche", image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" },
+            { title: "Grand Hotel Copacabana", location: "Río de Janeiro", stars: "4★", price: "USD 120 / noche", image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" },
+            { title: "Resort & Termas Federación", location: "Entre Ríos", stars: "4★", price: "$85.000 / noche", image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        // PAGE INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedOffers();
+            renderDestinations();
+            renderPopularPackages('all');
+            renderFullPackages();
+            renderExcursions();
+            renderFullDestinations();
+            renderHotels();
+            renderSpecialOffers();
+        });
+
+        // SPA SWITCHING
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            const targetView = document.getElementById(`view-${pageId}`);
+            if(targetView) {
+                targetView.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update nav active link
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            const activeNav = Array.from(document.querySelectorAll('.nav-link')).find(el => el.getAttribute('onclick')?.includes(pageId));
+            if(activeNav) activeNav.classList.add('active');
+
+            // Close mobile menu
+            document.getElementById('navMenu').classList.remove('active');
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // RENDER FUNCTIONS
+        function renderPackageCard(pkg) {
+            const waMsg = encodeURIComponent(`Hola, quiero consultar por el paquete ${pkg.title}\nDestino: ${pkg.destination}\nPrecio: ${pkg.price}`);
+            return `
+                <div class="offer-card">
+                    <div class="card-img-wrap">
+                        <span class="badge badge-accent card-badge">${pkg.badge}</span>
+                        <img src="${pkg.image}" alt="${pkg.title}">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <span><i class="fa-solid fa-location-dot"></i> ${pkg.destination}</span>
+                            <span><i class="fa-regular fa-clock"></i> ${pkg.duration}</span>
+                        </div>
+                        <h3 class="card-title">${pkg.title}</h3>
+                        <p class="card-desc">${pkg.description}</p>
+                        <div class="card-footer">
+                            <div>
+                                <div class="price-label">Desde</div>
+                                <div class="price-val">${pkg.price}</div>
+                            </div>
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn btn-outline btn-sm" onclick="openPackageModal(${pkg.id})">Detalles</button>
+                                <a href="https://wa.me/5491112345678?text=${waMsg}" target="_blank" class="btn btn-whatsapp btn-sm">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFeaturedOffers() {
+            const grid = document.getElementById('featuredOffersGrid');
+            if(grid) {
+                grid.innerHTML = packagesData.slice(0, 3).map(renderPackageCard).join('');
+            }
+        }
+
+        function renderPopularPackages(category) {
+            const grid = document.getElementById('popularPackagesGrid');
+            if(grid) {
+                let filtered = packagesData;
+                if(category !== 'all') {
+                    filtered = packagesData.filter(p => p.category === category || p.type === category);
+                }
+                grid.innerHTML = filtered.map(renderPackageCard).join('');
+            }
+        }
+
+        function filterPackages(category, btnElement) {
+            document.querySelectorAll('.filter-tabs .filter-btn').forEach(b => b.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+            renderPopularPackages(category);
+        }
+
+        function renderDestinations() {
+            const grid = document.getElementById('destinationsGrid');
+            if(grid) {
+                grid.innerHTML = destinationsData.map(d => `
+                    <div class="dest-card" onclick="filterByDestination('${d.name}')">
+                        <img src="${d.image}" alt="${d.name}">
+                        <div class="dest-overlay">
+                            <h3 class="dest-title">${d.name}</h3>
+                            <div class="dest-info">
+                                <span>${d.region}</span>
+                                <span class="badge badge-primary">${d.packagesCount} paquetes</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function renderFullPackages() {
+            const grid = document.getElementById('allPackagesGrid');
+            if(!grid) return;
+
+            const cat = document.getElementById('filterCatFull')?.value || 'all';
+            const sort = document.getElementById('filterSortFull')?.value || 'popular';
+
+            let items = [...packagesData];
+
+            if(cat !== 'all') {
+                items = items.filter(p => p.category === cat || p.type === cat);
+            }
+
+            grid.innerHTML = items.map(renderPackageCard).join('');
+        }
+
+        function renderExcursions() {
+            const grid = document.getElementById('excursionsGrid');
+            if(grid) {
+                grid.innerHTML = excursionsData.map(e => `
+                    <div class="offer-card">
+                        <div class="card-img-wrap">
+                            <img src="${e.image}" alt="${e.title}">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-location-dot"></i> ${e.location}</span>
+                                <span><i class="fa-regular fa-clock"></i> ${e.duration}</span>
+                            </div>
+                            <h3 class="card-title">${e.title}</h3>
+                            <div class="card-footer">
+                                <div>
+                                    <div class="price-label">Precio por persona</div>
+                                    <div class="price-val">${e.price}</div>
+                                </div>
+                                <a href="https://wa.me/5491112345678?text=Hola,%20quiero%20consultar%20por%20la%20excursi%C3%B3n%20${encodeURIComponent(e.title)}" target="_blank" class="btn btn-whatsapp btn-sm">
+                                    <i class="fa-brands fa-whatsapp"></i> Consultar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function renderFullDestinations() {
+            const grid = document.getElementById('fullDestinationsGrid');
+            if(grid) {
+                grid.innerHTML = destinationsData.map(d => `
+                    <div class="dest-card" onclick="filterByDestination('${d.name}')">
+                        <img src="${d.image}" alt="${d.name}">
+                        <div class="dest-overlay">
+                            <h3 class="dest-title">${d.name}</h3>
+                            <div class="dest-info">
+                                <span>${d.region}</span>
+                                <span class="badge badge-primary">${d.packagesCount} opciones</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function renderHotels() {
+            const grid = document.getElementById('hotelsGrid');
+            if(grid) {
+                grid.innerHTML = hotelsData.map(h => `
+                    <div class="offer-card">
+                        <div class="card-img-wrap">
+                            <span class="badge badge-accent card-badge">${h.stars}</span>
+                            <img src="${h.image}" alt="${h.title}">
+                        </div>
+                        <div class="card-body">
+                            <div class="card-meta">
+                                <span><i class="fa-solid fa-location-dot"></i> ${h.location}</span>
+                            </div>
+                            <h3 class="card-title">${h.title}</h3>
+                            <div class="card-footer">
+                                <div>
+                                    <div class="price-label">Tarifa estimada</div>
+                                    <div class="price-val">${h.price}</div>
+                                </div>
+                                <a href="https://wa.me/5491112345678?text=Hola,%20quiero%20consultar%20disponibilidad%20en%20${encodeURIComponent(h.title)}" target="_blank" class="btn btn-whatsapp btn-sm">
+                                    <i class="fa-brands fa-whatsapp"></i> Consultar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function renderSpecialOffers() {
+            const grid = document.getElementById('specialOffersGrid');
+            if(grid) {
+                grid.innerHTML = packagesData.map(renderPackageCard).join('');
+            }
+        }
+
+        // MODAL LOGIC
+        function openPackageModal(pkgId) {
+            const pkg = packagesData.find(p => p.id === pkgId);
+            if(!pkg) return;
+
+            document.getElementById('modalImg').src = pkg.image;
+            document.getElementById('modalTitle').textContent = pkg.title;
+            document.getElementById('modalDestino').textContent = pkg.destination;
+            document.getElementById('modalDuracion').textContent = pkg.duration;
+            document.getElementById('modalPrice').textContent = pkg.price;
+            document.getElementById('modalDesc').textContent = pkg.description;
+            document.getElementById('modalBadge').textContent = pkg.badge;
+
+            // Itinerary
+            const itinWrap = document.getElementById('modalItinerary');
+            itinWrap.innerHTML = pkg.itinerary.map(item => `
+                <div class="timeline-item">
+                    <div class="timeline-day">${item.day}</div>
+                    <div class="timeline-title">${item.title}</div>
+                    <div class="timeline-desc">${item.desc}</div>
+                </div>
+            `).join('');
+
+            // Includes
+            const incWrap = document.getElementById('modalIncludes');
+            incWrap.innerHTML = pkg.includes.map(inc => `<li>• ${inc}</li>`).join('');
+
+            // WhatsApp link
+            const waMsg = encodeURIComponent(`Hola, quiero consultar por el paquete ${pkg.title}\nDestino: ${pkg.destination}\nPrecio: ${pkg.price}`);
+            document.getElementById('modalWhatsappBtn').href = `https://wa.me/5491112345678?text=${waMsg}`;
+
+            document.getElementById('packageModal').classList.add('active');
+        }
+
+        function closePackageModal(e) {
+            if(e.target.id === 'packageModal') {
+                document.getElementById('packageModal').classList.remove('active');
+            }
+        }
+
+        function closePackageModalDirect() {
+            document.getElementById('packageModal').classList.remove('active');
+        }
+
+        // SEARCH & CATEGORY ACTIONS
+        function executeSearch() {
+            const dest = document.getElementById('searchDestino').value;
+            switchPage('paquetes');
+        }
+
+        function filterByCat(cat) {
+            switchPage('paquetes');
+            const select = document.getElementById('filterCatFull');
+            if(select) {
+                select.value = cat;
+                renderFullPackages();
+            }
+        }
+
+        function filterByDestination(destName) {
+            switchPage('paquetes');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('contactNombre').value;
+            const dest = document.getElementById('contactDestino').value;
+            const pax = document.getElementById('contactPasajeros').value;
+            
+            const msg = encodeURIComponent(`Hola Creditravel, mi nombre es ${nombre}. Quisiera información para viajar a ${dest || 'un destino'} para ${pax} personas.`);
+            window.open(`https://wa.me/5491112345678?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
